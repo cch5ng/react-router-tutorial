@@ -4,6 +4,7 @@ import {Router, Route, useRouterHistory} from 'react-router'
 import App from './modules/App'
 import About from './modules/About'
 import Repos from './modules/Repos'
+import Repo from './modules/Repo'
 import { createHashHistory } from 'history'
 
 //https://github.com/reactjs/react-router/blob/master/upgrade-guides/v2.0.0.md#using-custom-histories
@@ -15,7 +16,10 @@ const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 render((
 	<Router history={appHistory}>
 		<Route path='/' component={App}>
-			<Route path='/about' component={About} />
+			{/*<IndexRoute component={Home}/>*/}
 			<Route path='/repos' component={Repos} />
+{/* not totally sure why next path is not also nested */}
+			<Route path='/repos/:userName/:repoName' component={Repo} />
+			<Route path='/about' component={About} />
 		</Route>
 	</Router>), document.getElementById('app'))
