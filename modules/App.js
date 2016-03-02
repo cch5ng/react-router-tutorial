@@ -1,5 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router'
+import {Link, IndexLink} from 'react-router'
+import NavLink from './NavLink.js'
 
 export default React.createClass({
 	render() {
@@ -7,10 +8,12 @@ export default React.createClass({
 			<div>
 			<h1>React Router Tutorial</h1>
 			<ul role='nav'>
-				<li><Link to='/about' activeClassName='active' >About</Link></li>
-				<li><Link to='/repos' activeClassName='active' >Repos</Link></li>
+				<li><IndexLink to='/' activeClassName='active'>Home</IndexLink></li>
+				<li><NavLink to='/about' >About</NavLink></li>
+				<li><NavLink to='/repos' >Repos</NavLink></li>
 			</ul>
 {/* ask about what this is doing */}
+{/* is props.children specific to react-router */}
 			{this.props.children}
 			</div>
 		)
